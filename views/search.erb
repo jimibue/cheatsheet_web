@@ -1,2 +1,19 @@
-<h1>Search</h1>
-<a href="/">Index</a>
+<head>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+</head>
+<body>
+<%= erb :mypartial %>
+<div class="container"><h1>Search</h1>
+<form action="/search_for_command" method="POST">
+  <input name="command" type="text">
+  <input type="submit">
+</form></div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+</body>
