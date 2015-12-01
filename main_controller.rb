@@ -35,7 +35,7 @@ end
 get '/command_line/:name' do
   text = "man #{params[:name]}"
   @output = getInfo(text)
-  @success = @output.any?
+  @success = true
   erb :command_line_info
 end
 

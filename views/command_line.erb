@@ -2,18 +2,18 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 </head>
 <%= erb :mypartial %>
-<div class="container">
-  <% if @success %>
-      <% @output.each do |line| %>
-          <p><%= line %></p>
-      <% end %>
-  <% else %>
-      <h3>
-        <q><%= @text %></q>
-        is not a valid search option
-      </h3>
-  <%  end %>
+<div class = "container">
+  <h1>Command Line</h1>
+
+  <ul>
+    <% @term_commands.each do |num, command| %>
+        <a href= <%= "/command_line/#{command[:command]}" %> >
+          <li> <%= command[:name] %></li>
+        </a>
+        <% end %>
+  </ul>
 </div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
