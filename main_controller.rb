@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'pry'
 
+##from stack overflow
 def getInfo(text)
   output = []
   r, io = IO.pipe
@@ -18,6 +19,7 @@ get '/' do
 end
 
 get '/search' do
+  @success = true
   erb :search
 end
 
@@ -27,8 +29,7 @@ get '/command_line' do
           '2' => {name: "move", command: "mv",  example: "cp path/to/file path/to/destination"},
           '3' => {name: "list directory contents", command:"ls", example: "ls directory"}
       }
-
-  erb :command_line
+    erb :command_line
 end
 
 get '/command_line/:name' do
@@ -40,11 +41,15 @@ end
 
 #####POST
 post '/search_for_command' do
-
   @text = "man #{params[:command]}"
   @output = getInfo(@text)
   @success = @output.any?
-  erb :command_line_info
+  if @success
+    erb :command_line_info
+  else
+    erb :search
+  end
+
 end
 
 post '/redirect' do
